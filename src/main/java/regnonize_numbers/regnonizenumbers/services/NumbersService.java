@@ -4,41 +4,29 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 @Service
 public class NumbersService {
     // natural numbers
-    public ResponseEntity<List<Integer>> isNatural(List<Integer> numbers) {
+    public List<Integer> isNatural(Integer number) {
         List<Integer> indeedNaturals = new ArrayList<>();
-        if (numbers == null || numbers.isEmpty()) {
+        if (number > 0) {
             // zerois is not a natural number
-            for (Integer number : numbers) {
-                if (number > 0) {
-                    indeedNaturals.add(number);
-                }
-            }
-            return ResponseEntity.ok(indeedNaturals);
-        } else {
-            return ResponseEntity.badRequest().body(null);
+            indeedNaturals.add(number);
         }
-
+        return indeedNaturals;
     }
 
     // whole numbers
-    public ResponseEntity<List<Integer>> ifWholeNumber(List<Integer> numbers) {
+    public List<Integer> ifWholeNumber(Integer number) {
         List<Integer> indeedNaturals = new ArrayList<>();
-        if (numbers == null || numbers.isEmpty()) {
-            // zerois is not a natural number
-            for (Integer number : numbers) {
-                if (number >= 0) {
-                    indeedNaturals.add(number);
-                }
-            }
-            return ResponseEntity.ok(indeedNaturals);
-        } else {
-            return ResponseEntity.badRequest().body(null);
+        // zerois is not a natural number
+        if (number >= 0) {
+            indeedNaturals.add(number);
         }
+        return indeedNaturals;
     }
 
     // rational numbers
@@ -51,18 +39,18 @@ public class NumbersService {
 
     }
 
-    public ResponseEntity<List<Integer>> ifReal(List<Integer> numbers) {
-        List<Integer> indeedNaturals = new ArrayList<>();
-        if (numbers == null || numbers.isEmpty()) {
-            for (Integer number : numbers) {
-                if (number >= 0 || number <= 0) {
-                    indeedNaturals.add(number);
-                }
-            }
-            return ResponseEntity.ok(indeedNaturals);
+    // public ResponseEntity<List<Integer>> ifReal(List<Integer> numbers) {
+    //     List<Integer> indeedNaturals = new ArrayList<>();
+    //     if (numbers == null || numbers.isEmpty()) {
+    //         for (Integer number : numbers) {
+    //             if (number >= 0 || number <= 0) {
+    //                 indeedNaturals.add(number);
+    //             }
+    //         }
+    //         return ResponseEntity.ok(indeedNaturals);
 
-        } else {
-            return ResponseEntity.badRequest().body(null);
-        }
-    }
+    //     } else {
+    //         return ResponseEntity.badRequest().body(null);
+    //     }
+    // }
 }
