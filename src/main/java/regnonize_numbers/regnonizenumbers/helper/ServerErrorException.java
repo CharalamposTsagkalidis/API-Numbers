@@ -22,5 +22,9 @@ public class ServerErrorException extends RuntimeException {
         return errors;
     }
 
+    public List<ResponseEntity<Map<String, String>>> addError(ResponseEntity<Map<String, String>> error) {
+        this.errors.add(error);
+        return errors;
+    }
 
 }
