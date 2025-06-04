@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
+import regnonize_numbers.regnonizenumbers.helper.ResponseNumbers;
 import regnonize_numbers.regnonizenumbers.models.GeneralNumbersModel;
 import regnonize_numbers.regnonizenumbers.services.GeneralNumbersService;
 import java.util.List;
@@ -22,9 +23,9 @@ public class NumbersController {
         this.generalNumbersService = generalNumbersService;
     }
 
-    @GetMapping("/test-mono")
-    public Mono<String> test() {
-        return Mono.just("Hello, this is a test endpoint!");
+    @PostMapping("/fnumber")
+    public Mono<ResponseNumbers> getAllNumbersSecond(@RequestBody GeneralNumbersModel generalNumbersModel) {
+        return Mono.just(generalNumbersService.getAllNumbers(generalNumbersModel.getNumbers()));
     }
 
     @GetMapping("/test")
@@ -38,9 +39,8 @@ public class NumbersController {
     }
 
     @PostMapping("/numbers")
-    public String getAllNumbers(@RequestBody GeneralNumbersModel generalNumbersModel) {
-        return this.generalNumbersService.getAllNumbers(generalNumbersModel.getNumbers())
-                .toString();
+    public ResponseNumbers getAllNumbers(@RequestBody GeneralNumbersModel generalNumbersModel) {
+        return this.generalNumbersService.getAllNumbers(generalNumbersModel.getNumbers());
     }
 
 }

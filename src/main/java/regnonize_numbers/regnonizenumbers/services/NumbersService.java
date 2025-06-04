@@ -3,8 +3,6 @@ package regnonize_numbers.regnonizenumbers.services;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -39,18 +37,11 @@ public class NumbersService {
 
     }
 
-    // public ResponseEntity<List<Integer>> ifReal(List<Integer> numbers) {
-    //     List<Integer> indeedNaturals = new ArrayList<>();
-    //     if (numbers == null || numbers.isEmpty()) {
-    //         for (Integer number : numbers) {
-    //             if (number >= 0 || number <= 0) {
-    //                 indeedNaturals.add(number);
-    //             }
-    //         }
-    //         return ResponseEntity.ok(indeedNaturals);
-
-    //     } else {
-    //         return ResponseEntity.badRequest().body(null);
-    //     }
-    // }
+    public List<Integer> ifReal(Integer number) {
+        List<Integer> indeedNaturals = new ArrayList<>();
+        if (number >= 0 || number <= 0) {
+            indeedNaturals.add(number);
+        }
+        return indeedNaturals;
+    }
 }
