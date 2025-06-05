@@ -28,7 +28,7 @@ public class NumbersController {
         this.rGeneralNumbersService = rGeneralNumbersService;
     }
 
-    @PostMapping("/fnumber")
+    @PostMapping("/fnumbers")
     public Mono<ResponseNumbers> getAllNumbersSecond(@RequestBody GeneralNumbersModel generalNumbersModel) {
         return rGeneralNumbersService.getRAllNumbers(generalNumbersModel.getNumbers());
     }
