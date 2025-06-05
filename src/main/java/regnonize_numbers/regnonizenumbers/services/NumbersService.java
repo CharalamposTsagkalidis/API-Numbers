@@ -27,14 +27,8 @@ public class NumbersService {
         return indeedNaturals;
     }
 
-    // rational numbers
-    // irrational numbers
     public void ifRationalOrIrrational(List<Long> rationalNumbers, List<Long> irrationalNumbers) {
-        if (rationalNumbers == null || rationalNumbers.isEmpty() || irrationalNumbers == null
-                || irrationalNumbers.isEmpty()) {
-            throw new IllegalArgumentException("Input lists cannot be null or empty");
-        }
-
+        //TODO: Implement logic to determine if numbers are rational or irrational
     }
 
     public List<Integer> ifReal(Integer number) {
