@@ -30,7 +30,7 @@ public class NumbersController {
 
     @PostMapping("/fnumbers")
     public Mono<ResponseNumbers> getAllNumbersSecond(@RequestBody GeneralNumbersModel generalNumbersModel) {
-        return rGeneralNumbersService.getRAllNumbers(generalNumbersModel.getNumbers());
+        return this.rGeneralNumbersService.getRAllNumbers(generalNumbersModel.getNumbers());
     }
 
     @GetMapping("/test")
