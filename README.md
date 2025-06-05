@@ -9,9 +9,11 @@ This API receives one List of String inputs(numbers) and classifies each number 
 ## Request/Response Body
 
 ```json
+//request
 {
   "numbers": []
 }
+//response
 {
   "naturalNumbers": [],
   "wholeNumbers": [],
