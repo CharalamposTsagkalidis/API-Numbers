@@ -5,17 +5,15 @@ This API receives one List of String inputs(numbers) and classifies each number 
 - Natural
 - Whole
 
-###  Request Body
+
+## Request/Response Body
 
 ```json
 {
   "numbers": []
 }
-### Response Body
-```json
--response body:
 {
-"naturalNumbers":[],
-"wholeNumbers":[],
-"realNumbers":[]
+  "naturalNumbers": [],
+  "wholeNumbers": [],
+  "realNumbers": []
 }
