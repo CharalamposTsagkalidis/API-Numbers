@@ -11,6 +11,8 @@ import reactor.core.publisher.Mono;
 import regnonize_numbers.regnonizenumbers.helper.ResponseNumbers;
 import regnonize_numbers.regnonizenumbers.models.GeneralNumbersModel;
 import regnonize_numbers.regnonizenumbers.services.GeneralNumbersService;
+import regnonize_numbers.regnonizenumbers.services.RGeneralNumbersService;
+
 import java.util.List;
 
 @RequestMapping("/service")
@@ -18,24 +20,22 @@ import java.util.List;
 public class NumbersController {
 
     private final GeneralNumbersService generalNumbersService;
+    private final RGeneralNumbersService rGeneralNumbersService;
 
-    public NumbersController(GeneralNumbersService generalNumbersService) {
+    public NumbersController(GeneralNumbersService generalNumbersService, 
+                             RGeneralNumbersService rGeneralNumbersService) {
         this.generalNumbersService = generalNumbersService;
+        this.rGeneralNumbersService = rGeneralNumbersService;
     }
 
     @PostMapping("/fnumber")
     public Mono<ResponseNumbers> getAllNumbersSecond(@RequestBody GeneralNumbersModel generalNumbersModel) {
-        return Mono.just(generalNumbersService.getAllNumbers(generalNumbersModel.getNumbers()));
+        return rGeneralNumbersService.getRAllNumbers(generalNumbersModel.getNumbers());
     }
 
     @GetMapping("/test")
     public String testString() {
         return "Hello, this is a test endpoint!";
-    }
-
-    @GetMapping("/testnumber")
-    public Flux<List<Long>> typeNumber() {
-        return null;
     }
 
     @PostMapping("/numbers")
