@@ -12,7 +12,8 @@ import regnonize_numbers.regnonizenumbers.helper.ResponseNumbers;
 import regnonize_numbers.regnonizenumbers.models.GeneralNumbersModel;
 import regnonize_numbers.regnonizenumbers.services.GeneralNumbersService;
 import regnonize_numbers.regnonizenumbers.services.RGeneralNumbersService;
-
+import java.util.HashMap;
+import java.util.Map;
 import java.util.List;
 
 @RequestMapping("/service")
@@ -41,6 +42,11 @@ public class NumbersController {
     @PostMapping("/numbers")
     public ResponseNumbers getAllNumbers(@RequestBody GeneralNumbersModel generalNumbersModel) {
         return this.generalNumbersService.getAllNumbers(generalNumbersModel.getNumbers());
+    }
+
+    @PostMapping("/prime-or-composite")
+    public List<String> checkPrimeOrComposite(@RequestBody GeneralNumbersModel longNumbers) {
+        return this.generalNumbersService.primeOrComposite(longNumbers);
     }
 
 }

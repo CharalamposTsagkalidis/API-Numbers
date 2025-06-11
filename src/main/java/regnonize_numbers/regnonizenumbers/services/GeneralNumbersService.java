@@ -3,7 +3,10 @@ package regnonize_numbers.regnonizenumbers.services;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import regnonize_numbers.regnonizenumbers.models.GeneralNumbersModel;
 
 import regnonize_numbers.regnonizenumbers.helper.ResponseNumbers;
 
@@ -46,5 +49,34 @@ public class GeneralNumbersService {
         } else {
             return false;
         }
+    }
+
+    public List<String> primeOrComposite(GeneralNumbersModel longNumbers) {
+        List<String> response = new ArrayList<>();
+        for (Long number : longNumbers.getLongNumbers()) {
+            if (number < 2) {
+                // neither prime nor composite
+                response.add(number + " is neither prime nor composite.");
+            } else if (this.isPrime(number)) {
+                // prime
+                response.add(number + " is a prime number.");
+            } else {
+                // composite
+                response.add(number + " is a composite number.");
+            }
+        }
+        return response;
+    }
+
+    private boolean isPrime(Long number) {
+        if (number <= 1) {
+            return false; // 0 and 1 are not prime numbers
+        }
+        for (int i = 2; i <= Math.sqrt(number); i++) {
+            if (number % i == 0) {
+                return false; // Found a divisor, so it's not prime
+            }
+        }
+        return true; // No divisors found, so it's prime
     }
 }

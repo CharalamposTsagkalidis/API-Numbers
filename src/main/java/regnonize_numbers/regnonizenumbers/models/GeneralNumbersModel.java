@@ -4,7 +4,7 @@ import java.util.List;
 
 public class GeneralNumbersModel {
     private List<String> numbers;
-
+    private List<Long> longNumbers;
     public GeneralNumbersModel() {
 
     }
@@ -17,4 +17,12 @@ public class GeneralNumbersModel {
         return numbers;
     }
 
+    public List<Long> getLongNumbers() {
+        return longNumbers;
+    }
+
+    public void setLongNumbers(List<Long> longNumbers) {
+        this.longNumbers = longNumbers;
+    }
+    
 }
