@@ -40,6 +40,9 @@ public class GeneralNumbersService {
         responseNumbers.setNaturalNumbers(naturalNumbers);
         responseNumbers.setWholeNumbers(wholeNumbers);
         responseNumbers.setRealNumbers(realNumbers);
+        responseNumbers.setSizeOfNaturalNumbers(responseNumbers.getSizeOfNaturalNumbers());
+        responseNumbers.setSizeOfWholeNumbers(responseNumbers.getSizeOfWholeNumbers());
+        responseNumbers.setSizeOfRealNumbers(responseNumbers.getSizeOfRealNumbers());
         return responseNumbers;
     }
 

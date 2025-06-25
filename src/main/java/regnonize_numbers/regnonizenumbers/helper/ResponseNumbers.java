@@ -1,13 +1,19 @@
 package regnonize_numbers.regnonizenumbers.helper;
+
 import java.util.List;
+
 public class ResponseNumbers {
-    List<Integer> naturalNumbers;
-    List<Integer> wholeNumbers;
-    List<Integer> realNumbers;
+    private List<Integer> naturalNumbers;
+    private List<Integer> wholeNumbers;
+    private List<Integer> realNumbers;
+    private Integer sizeOfNaturalNumbers;
+    private Integer sizeOfWholeNumbers;
+    private Integer sizeOfRealNumbers;
 
-    public ResponseNumbers() {}
+    public ResponseNumbers() {
+    }
 
-    //get set
+    // get set
     public List<Integer> getNaturalNumbers() {
         return naturalNumbers;
     }
@@ -32,5 +38,30 @@ public class ResponseNumbers {
         this.realNumbers = realNumbers;
     }
 
+    public Integer getSizeOfNaturalNumbers() {
+        return naturalNumbers != null ? naturalNumbers.size() : 0;
+    }
+
+    public Integer getSizeOfWholeNumbers() {
+        return wholeNumbers != null ? wholeNumbers.size() : 0;
+    }
+
+    public Integer getSizeOfRealNumbers() {
+        return realNumbers != null ? realNumbers.size() : 0;
+    }
+
+    public void setSizeOfNaturalNumbers(Integer sizeOfNaturalNumbers) {
+        this.sizeOfNaturalNumbers = sizeOfNaturalNumbers;
+    }
+
+    public void setSizeOfWholeNumbers(Integer sizeOfWholeNumbers) {
+        this.sizeOfWholeNumbers = sizeOfWholeNumbers;
+    }
+
+    public void setSizeOfRealNumbers(Integer sizeOfRealNumbers) {
+        this.sizeOfRealNumbers = sizeOfRealNumbers;
+    }
+
     
+
 }
