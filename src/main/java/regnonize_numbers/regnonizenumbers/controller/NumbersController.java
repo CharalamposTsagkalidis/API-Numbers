@@ -12,6 +12,8 @@ import regnonize_numbers.regnonizenumbers.helper.ResponseNumbers;
 import regnonize_numbers.regnonizenumbers.models.GeneralNumbersModel;
 import regnonize_numbers.regnonizenumbers.services.GeneralNumbersService;
 import regnonize_numbers.regnonizenumbers.services.RGeneralNumbersService;
+
+import java.util.ArrayList;
 import java.util.List;
 
 @CrossOrigin(origins = "http://localhost:4200")
@@ -48,4 +50,9 @@ public class NumbersController {
         return this.generalNumbersService.primeOrComposite(longNumbers);
     }
 
+    @PostMapping("/fibonacci")
+    public Integer fibonacciResult(@RequestBody ArrayList<Integer> numbers) {
+        return this.generalNumbersService.fibonacciResult(numbers);
+
+    }
 }

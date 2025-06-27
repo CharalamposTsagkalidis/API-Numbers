@@ -82,4 +82,18 @@ public class GeneralNumbersService {
         }
         return true; // No divisors found, so it's prime
     }
+
+    public Integer fibonacciResult(ArrayList<Integer> incomingNumbers) {
+        if (incomingNumbers != null && !incomingNumbers.isEmpty()) {
+            if(incomingNumbers.getLast() > 0 && incomingNumbers.getLast() > 2) {
+                throw new IllegalArgumentException("Negative numbers are not allowed");
+            }
+            Integer lastNumber = incomingNumbers.getLast();
+            Integer oneBeforeLastNumber = incomingNumbers.get(incomingNumbers.size() - 2);
+            Integer result = lastNumber + oneBeforeLastNumber;
+            return result;
+        }
+
+        return null;
+    }
 }
