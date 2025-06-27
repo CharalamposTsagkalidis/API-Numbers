@@ -85,8 +85,8 @@ public class GeneralNumbersService {
 
     public Integer fibonacciResult(ArrayList<Integer> incomingNumbers) {
         if (incomingNumbers != null && !incomingNumbers.isEmpty()) {
-            if(incomingNumbers.getLast() > 0 && incomingNumbers.getLast() > 2) {
-                throw new IllegalArgumentException("Negative numbers are not allowed");
+            if(incomingNumbers.getLast() < 0 ||  incomingNumbers.get(incomingNumbers.size() - 2) <0) {
+                throw new IllegalArgumentException("Fibonacci numbers must be non-negative.");
             }
             Integer lastNumber = incomingNumbers.getLast();
             Integer oneBeforeLastNumber = incomingNumbers.get(incomingNumbers.size() - 2);
