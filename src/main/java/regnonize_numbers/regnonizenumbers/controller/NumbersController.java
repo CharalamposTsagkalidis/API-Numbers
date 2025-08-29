@@ -24,8 +24,8 @@ public class NumbersController {
     private final GeneralNumbersService generalNumbersService;
     private final RGeneralNumbersService rGeneralNumbersService;
 
-    public NumbersController(GeneralNumbersService generalNumbersService, 
-                             RGeneralNumbersService rGeneralNumbersService) {
+    public NumbersController(GeneralNumbersService generalNumbersService,
+            RGeneralNumbersService rGeneralNumbersService) {
         this.generalNumbersService = generalNumbersService;
         this.rGeneralNumbersService = rGeneralNumbersService;
     }
@@ -55,4 +55,5 @@ public class NumbersController {
         return this.generalNumbersService.fibonacciResult(numbers);
 
     }
+
 }
