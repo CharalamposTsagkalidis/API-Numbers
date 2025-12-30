@@ -1,24 +1,29 @@
 package regnonize_numbers.regnonizenumbers.configuration;
 
+import java.util.Collections;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Component;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-@Configuration
-public class CorsConfig {
+import jakarta.servlet.http.HttpServletRequest;
 
-    @Bean
-    public WebMvcConfigurer corsConfigurer() {
-        return new WebMvcConfigurer() {
-            @Override
-            public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/**")
-                        .allowedOrigins("*") // Replace with frontend origin in prod (e.g. http://localhost:3000)
-                        .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
-                        .allowedHeaders("Authorization", "Content-Type", "X-Requested-With")
-                        .allowCredentials(true);
-            }
-        };
+@Configuration
+public class CorsConfig implements CorsConfigurationSource {
+
+    //@Bean
+    @Override
+    public CorsConfiguration getCorsConfiguration(HttpServletRequest request) {
+        CorsConfiguration config = new CorsConfiguration();
+        config.setAllowedOriginPatterns(Collections.singletonList("http://localhost:*"));
+        config.addAllowedMethod("*");
+        config.addAllowedHeader("*");
+        config.setAllowCredentials(true);
+        config.addExposedHeader("Set-Cookie");
+        return config;
     }
 }
