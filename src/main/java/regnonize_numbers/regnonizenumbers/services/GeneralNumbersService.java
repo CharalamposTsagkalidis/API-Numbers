@@ -24,7 +24,6 @@ public class GeneralNumbersService {
         List<Integer> naturalNumbers = new ArrayList<>();
         List<Integer> wholeNumbers = new ArrayList<>();
         List<Integer> realNumbers = new ArrayList<>();
-        ResponseNumbers responseNumbers = new ResponseNumbers();
         for (String stringNumber : incomingStringNumbers) {
             if (stringNumber != null && ifStringContainsOnlyDigits(stringNumber)) {
                 indeedNumbers.add(Integer.parseInt(stringNumber));
@@ -37,6 +36,13 @@ public class GeneralNumbersService {
                 realNumbers.addAll(responseOfRealNumbers);
             }
         }
+        return this.mapNumbersToResponse(naturalNumbers, wholeNumbers, realNumbers);
+    }
+
+
+
+    private ResponseNumbers mapNumbersToResponse(List<Integer> naturalNumbers,List<Integer> wholeNumbers, List<Integer> realNumbers) {
+        ResponseNumbers responseNumbers = new ResponseNumbers();
         responseNumbers.setNaturalNumbers(naturalNumbers);
         responseNumbers.setWholeNumbers(wholeNumbers);
         responseNumbers.setRealNumbers(realNumbers);
@@ -44,6 +50,7 @@ public class GeneralNumbersService {
         responseNumbers.setSizeOfWholeNumbers(responseNumbers.getSizeOfWholeNumbers());
         responseNumbers.setSizeOfRealNumbers(responseNumbers.getSizeOfRealNumbers());
         return responseNumbers;
+        
     }
 
     private boolean ifStringContainsOnlyDigits(String stringNumbers) {
