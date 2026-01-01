@@ -56,4 +56,9 @@ public class NumbersController {
 
     }
 
+    @PostMapping("/information-for-number")
+    public String getInformationForNumber(@RequestBody String number) {
+        return null;
+    }
+
 }
