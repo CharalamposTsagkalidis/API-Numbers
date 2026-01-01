@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import reactor.core.publisher.Mono;
+import regnonize_numbers.regnonizenumbers.dto.InfoNumber.InfoNumberRequest;
+import regnonize_numbers.regnonizenumbers.dto.InfoNumber.InfoNumberResponse;
 import regnonize_numbers.regnonizenumbers.helper.ResponseNumbers;
 import regnonize_numbers.regnonizenumbers.models.GeneralNumbersModel;
 import regnonize_numbers.regnonizenumbers.services.GeneralNumbersService;
@@ -57,7 +59,7 @@ public class NumbersController {
     }
 
     @PostMapping("/information-for-number")
-    public String getInformationForNumber(@RequestBody String number) {
+    public InfoNumberResponse getInformationForNumber(@RequestBody InfoNumberRequest number) {
         return null;
     }
 

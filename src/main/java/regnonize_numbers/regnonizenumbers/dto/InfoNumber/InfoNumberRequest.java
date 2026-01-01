@@ -1,4 +1,4 @@
-package regnonize_numbers.regnonizenumbers.dto;
+package regnonize_numbers.regnonizenumbers.dto.InfoNumber;
 
 public class InfoNumberRequest {
     public String number;
