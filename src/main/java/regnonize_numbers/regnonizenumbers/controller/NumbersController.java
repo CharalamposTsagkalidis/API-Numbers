@@ -13,6 +13,7 @@ import regnonize_numbers.regnonizenumbers.dto.InfoNumber.InfoNumberResponse;
 import regnonize_numbers.regnonizenumbers.helper.ResponseNumbers;
 import regnonize_numbers.regnonizenumbers.models.GeneralNumbersModel;
 import regnonize_numbers.regnonizenumbers.services.GeneralNumbersService;
+import regnonize_numbers.regnonizenumbers.services.NumberInfoService;
 import regnonize_numbers.regnonizenumbers.services.RGeneralNumbersService;
 
 import java.util.ArrayList;
@@ -25,11 +26,12 @@ public class NumbersController {
 
     private final GeneralNumbersService generalNumbersService;
     private final RGeneralNumbersService rGeneralNumbersService;
-
+    private final NumberInfoService numberInfoService;
     public NumbersController(GeneralNumbersService generalNumbersService,
-            RGeneralNumbersService rGeneralNumbersService) {
+            RGeneralNumbersService rGeneralNumbersService, NumberInfoService numberInfoService) {
         this.generalNumbersService = generalNumbersService;
         this.rGeneralNumbersService = rGeneralNumbersService;
+        this.numberInfoService = numberInfoService;
     }
 
     @PostMapping("/fnumbers")
@@ -60,7 +62,7 @@ public class NumbersController {
 
     @PostMapping("/information-for-number")
     public InfoNumberResponse getInformationForNumber(@RequestBody InfoNumberRequest number) {
-        return null;
+        return this.numberInfoService.getNumberInfo(Integer.parseInt(number.getNumber()));
     }
 
 }
